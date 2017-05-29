@@ -1,0 +1,37 @@
+/**
+ * Created by x on 01/09/16.
+ */
+
+{
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Logo_TV_2015.png",
+    "company": "A+ International Healthcare",
+    "planName": "SEA Essential",
+    "areaOfCover": "Worldwide cover",
+    "maximumCover": "USD 500 000 year",
+    "excess": "USD 0 per year",
+    "outPatientCover": "USD 100 year Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sapien tellus, lobortis in ultricies sed, feugiat a massa. Mauris molestie lectus in enim posuere sagittis. Ut sed ante tristique, molestie magna eu, luctus urna. Nulla a viverra odio. Nam at turpis id justo laoreet placerat. Etiam justo eros, aliquet eget dolor non, scelerisque volutpat arcu. Sed lacinia faucibus ipsum, vitae molestie libero malesuada id. Nulla vel orci magna. In scelerisque purus ultrices felis sollicitudin, id tempus leo fringilla. Curabitur mattis ullamcorper orci, rutrum pharetra turpis placerat vel. Aenean id lorem venenatis, maximus turpis vel, pharetra urna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras ultrices nisl ut iaculis porttitor. Maecenas venenatis porta orci, vel bibendum felis venenatis id. Sed viverra ex enim, nec condimentum arcu eleifend ut.",
+    "dentalCover": "Yes USD 100 month Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sapien tellus, lobortis in ultricies sed, feugiat a massa. Mauris molestie lectus in enim posuere sagittis. Ut sed ante tristique, molestie magna eu, luctus urna. Nulla a viverra odio. Nam at turpis id justo laoreet placerat. Etiam justo eros, aliquet eget dolor non, scelerisque volutpat arcu. Sed lacinia faucibus ipsum, vitae molestie libero malesuada id. Nulla vel orci magna. In scelerisque purus ultrices felis sollicitudin, id tempus leo fringilla. Curabitur mattis ullamcorper orci, rutrum pharetra turpis placerat vel. Aenean id lorem venenatis, maximus turpis vel, pharetra urna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras ultrices nisl ut iaculis porttitor. Maecenas venenatis porta orci, vel bibendum felis venenatis id. Sed viverra ex enim, nec condimentum arcu eleifend ut.",
+    "maternityCover": " USD   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sapien tellus, lobortis in ultricies sed, feugiat a massa. Mauris molestie lectus in enim posuere sagittis. Ut sed ante tristique, molestie magna eu, luctus urna. Nulla a viverra odio. Nam at turpis id justo laoreet placerat. Etiam justo eros, aliquet eget dolor non, scelerisque volutpat arcu. Sed lacinia faucibus ipsum, vitae molestie libero malesuada id. Nulla vel orci magna. In scelerisque purus ultrices felis sollicitudin, id tempus leo fringilla. Curabitur mattis ullamcorper orci, rutrum pharetra turpis placerat vel. Aenean id lorem venenatis, maximus turpis vel, pharetra urna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras ultrices nisl ut iaculis porttitor. Maecenas venenatis porta orci, vel bibendum felis venenatis id. Sed viverra ex enim, nec condimentum arcu eleifend ut.",
+    "opticalCover": " USD   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque sapien tellus, lobortis in ultricies sed, feugiat a massa. Mauris molestie lectus in enim posuere sagittis. Ut sed ante tristique, molestie magna eu, luctus urna. Nulla a viverra odio. Nam at turpis id justo laoreet placerat. Etiam justo eros, aliquet eget dolor non, scelerisque volutpat arcu. Sed lacinia faucibus ipsum, vitae molestie libero malesuada id. Nulla vel orci magna. In scelerisque purus ultrices felis sollicitudin, id tempus leo fringilla. Curabitur mattis ullamcorper orci, rutrum pharetra turpis placerat vel. Aenean id lorem venenatis, maximus turpis vel, pharetra urna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras ultrices nisl ut iaculis porttitor. Maecenas venenatis porta orci, vel bibendum felis venenatis id. Sed viverra ex enim, nec condimentum arcu eleifend ut.",
+    "otherHighlights": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+    "askUs": [
+    {
+        "name": "Benefits schedule",
+        "url": "http://www.orimi.com/pdf-test.pdf",
+        "$$hashKey": "object:232"
+    },
+    {
+        "name": "General conditions",
+        "url": "http://www.orimi.com/pdf-test.pdf",
+        "$$hashKey": "object:233"
+    }
+],
+    "annualPremium": "USD 1808",
+    "$$hashKey": "object:6",
+    "userInfo": {
+    "name": "hola",
+        "email": "test@gmail.com",
+        "phone": "123456",
+        "comment": "helllooooooooooooooooooooo"
+}
+}

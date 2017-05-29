@@ -1,0 +1,19 @@
+version: '2'
+services:
+  web:
+    image: docker.apiumtech.io/eheathscanner-backend:latest
+    env_file:
+      - "../../storage-functional-test.env"
+    environment:
+      - DEBUG=true
+      - STORAGE_PORT=3307
+    links:
+      - mysql:eheathscanner.mysql
+    command: "npm test && npm run lint"
+
+  mysql:
+    image: mysql:5.7.12
+    env_file:
+      - "../../storage-functional-test.env"
+    volumes:
+      - ./mysql-configuration:/etc/mysql/conf.d

@@ -1,0 +1,156 @@
+#detail {
+
+  .comparison {
+    display: flex;
+
+    .plan-item {
+      position: relative;
+      padding: 7px;
+      height: 100%;
+
+      &.adding-plan {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .fa-close {
+        @extend .font-weight-semi-bold;
+        @extend .pointer;
+        color: $dark-1;
+        font-size: 12px;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+      }
+
+      .details {
+        .plan-name {
+          @extend .font-weight-bold;
+          font-size: 13px;
+          color: $dark;
+        }
+
+        .plan-desc {
+          font-size: 12px;
+          font-weight: 400;
+          color: $dark-1;
+          padding: 0 5px;
+        }
+      }
+
+      .cost {
+        .currency {
+          color: $dark-1;
+          font-size: 12px;
+          font-weight: 400;
+          vertical-align: top;
+        }
+
+        .amount {
+          @extend .font-weight-semi-bold;
+          color: $primary;
+          font-size: 24px;
+        }
+
+        .per {
+          color: $dark-1;
+          font-size: 12px;
+          font-weight: 400;
+          vertical-align: bottom;
+        }
+      }
+
+      .btn {
+        @extend .font-weight-bold;
+        font-size: 12px;
+        border-radius: 3px;
+        padding-top: 4px;
+        padding-bottom: 4px;
+
+        &.btn-apply {
+          background-color: $primary;
+          color: white;
+          margin-bottom: 4px;
+        }
+
+        &.btn-ask {
+          background-color: white;
+          color: $primary;
+          border: 2px solid $light-blue-1;
+
+          &:hover {
+            border-color: darken($light-blue-1, 12%);
+          }
+        }
+
+        &.btn-add-plan {
+          background-color: white;
+          color: $primary;
+          border: 2px solid $light-blue-2;
+          white-space: normal;
+        }
+      }
+    }
+  }
+
+  .fact {
+    background-color: $light-blue-1;
+    position: relative;
+
+    &.active {
+      background-color: darken($light-blue-1, 12%);
+    }
+
+    .title {
+      @extend .font-weight-semi-bold;
+      @extend .pointer;
+      display: block;
+      float: none;
+      text-shadow: 0.5px 0.8px 1px rgba(0, 0, 0, 0.15);
+      color: rgb(245, 245, 245);
+      font-size: 13px;
+      padding: 20px 0;
+    }
+
+    .fa-plus, .fa-minus {
+      @extend .vertical-align;
+      font-size: 14px;
+      font-weight: 400;
+      left: 10px;
+      color: rgba(245, 245, 245, 0.7);
+    }
+
+    &.last {
+      border-bottom: 3px solid $primary;
+    }
+  }
+
+  .fact-info {
+    background: white;
+
+    & + .fact {
+      border-top: 1px solid $primary;
+    }
+
+    &.collapse.in + .fact {
+      border-top: 1px solid rgba(0, 0, 0, 0);
+    }
+
+    .fact-box {
+      border-top: 1px solid #ebebeb;
+
+      div {
+        @extend .font-weight-semi-bold;
+        color: $dark-1;
+        font-size: 13px;
+      }
+
+      span {
+        font-size: 13px;
+        font-weight: 400;
+        color: $dark;
+      }
+    }
+  }
+}

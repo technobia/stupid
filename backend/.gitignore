@@ -1,0 +1,7 @@
+/.idea
+/*.iml
+/node_modules
+/typings
+/compiled-src
+/.tscache
+.DS_Store

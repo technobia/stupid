@@ -1,0 +1,40 @@
+version: '2'
+services:
+  web:
+    image: docker.apiumtech.io/ehealthscanner-backend:${TAG}
+    env_file:
+      - "../../storage-functional-test.env"
+    environment:
+      - DEBUG=true
+      - MYSQL_HOST=mysql
+      - MYSQL_PORT=3306
+    depends_on:
+      - mysql
+
+  backdoor:
+    image: docker.apiumtech.io/ehealthscanner-backend:${TAG}
+    env_file:
+      - "../../storage-functional-test.env"
+    environment:
+      - DEBUG=true
+      - MYSQL_HOST=ehealthscanner.mysql
+      - MYSQL_PORT=3306
+    depends_on:
+      - mysql
+    command: "npm run backdoor"
+
+  jmeter:
+    image: docker.apiumtech.io/apium-jmeter-2.9
+    links:
+      - web:ehealthscanner.backend
+      - backdoor:ehealthscanner.backdoor
+    volumes:
+     - ".:/test/"
+    command: "/test/functional.jmx"
+    environment:
+      DISCOVERY_PATH: "ehealthscanner.backend:3333/api/ping/hello"
+
+  mysql:
+    image: mysql:5.7.12
+    env_file:
+      - "../../storage-functional-test.env"

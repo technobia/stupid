@@ -1,0 +1,20 @@
+version: '2'
+services:
+
+  proxy:
+    environment:
+      - HTTPS_OFF=true
+      - PORT=${PORT}
+      - FRONTEND_HOST=${DOCKERHOST_IP}:8282
+      - BACKEND_HOST=${DOCKERHOST_IP}:3333
+    ports:
+      - ${PORT}:${PORT}
+
+  mysql:
+    ports:
+      - ${MYSQL_PORT}:3306
+    tmpfs:
+      - /var/lib/mysql
+
+volumes:
+  dbdata: {}

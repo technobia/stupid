@@ -1,0 +1,8 @@
+server {
+	listen 8282;
+
+	location / {
+		root /home/apium/workspace/ehealthscanner/frontend/app;
+		try_files $uri $uri/ /index.html =404;
+	}
+}

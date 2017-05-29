@@ -1,0 +1,13 @@
+.idea
+server/build.tar.gz
+.DS_Store
+
+app/node_modules
+app/reports
+app/build
+app/index.html
+app/npm-debug.log*
+
+reports/
+.config
+vscode/

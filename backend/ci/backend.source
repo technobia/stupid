@@ -1,0 +1,10 @@
+set -euo pipefail
+
+BACKEND_IMAGE=${DOCKER_REGISTRY}/ehealthscanner-backend
+
+build_backend() {
+    docker build ${1:-} \
+    --build-arg NPM_CONFIG_REGISTRY=${NPM_CONFIG_REGISTRY:-} \
+    --build-arg SOURCES_MIRROR="${DEBIAN_JESSIE_SOURCES_MIRROR:-}" \
+    -t ${BACKEND_IMAGE}:latest .
+}

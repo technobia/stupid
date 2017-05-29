@@ -1,0 +1,23 @@
+{
+  "masterAreaOfCover": "3",
+  "countryOfResidence": 245,
+  "nationality": 235,
+  "numberInsured": "1",
+  "persons": [
+    {
+      "id": "93b5b379-5252-2fbe-63d4-cd6e5378019a",
+      "age": 8,
+      "gender": "Female",
+      "nationality": "Ukraine",
+      "relationShip": "",
+      "masterAreaOfCover": "South East Asia",
+      "$$hashKey": "object:282"
+    }
+  ],
+  "maternityCover": "0",
+  "outpatientCover": "0",
+  "dentalCover": "0",
+  "opticalCover": "0",
+  "excess": "200",
+  "page": "1"
+}

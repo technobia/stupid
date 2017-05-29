@@ -1,0 +1,9 @@
+typings/
+node_modules/
+.git/
+.idea/
+.vscode/
+ci/
+tmp/
+Makefile
+compiled-src/

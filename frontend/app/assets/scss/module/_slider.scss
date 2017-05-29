@@ -1,0 +1,29 @@
+.rzslider {
+  margin: 0 0 calc(7px + 10px) 0;
+
+  .rz-pointer {
+    width: 20px;
+    height: 20px;
+    background: white;
+    top: -8px;
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.07);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+
+    &:after { content: unset; }
+
+    &.rz-active {
+      outline: none;
+    }
+  }
+
+  .rz-bar-wrapper {
+    padding: 0;
+    margin: 0;
+    height: 2px;
+
+    .rz-bar {
+      height: 6px;
+      background: $light-blue-1;
+    }
+  }
+}

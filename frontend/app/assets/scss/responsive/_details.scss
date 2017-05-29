@@ -1,0 +1,115 @@
+#detail {
+  margin-bottom: 40px;
+
+  .comparison {
+    display: flex;
+
+    .plan-item {
+      &.your-plan {
+        font-size: 30px;
+        font-weight: 900;
+        color: $dark-1;
+        align-items: flex-start;
+        justify-content: flex-start;
+        span {
+          width: 63px;
+        }
+
+        &::before,
+        &::after {
+          content: '';
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          border-top: 1em solid white;
+          border-left: 1em solid white;
+        }
+
+        &::before {
+          border-bottom: 1em solid $light;
+          border-right: 1em solid $light;
+        }
+
+        &::after {
+          border-top: 1em solid rgba(0, 0, 0, 0);
+          border-left: 1em solid rgba(0, 0, 0, 0);
+        }
+      }
+
+      .fa-close {
+        font-size: 15px;
+        top: 10px;
+        right: 10px;
+      }
+
+      .details {
+        .plan-name {
+          font-size: 15px;
+        }
+        .plan-desc {
+          font-size: 14px;
+          padding: 0;
+        }
+      }
+
+      .cost {
+        .currency {
+          font-size: 14px;
+        }
+
+        .amount {
+          font-size: 60px;
+          line-height: 40px;
+        }
+
+        .per {
+          font-size: 14px;
+        }
+      }
+
+      .btn-wrapper {
+        display: flex;
+        width: 100%;
+      }
+
+      .btn {
+        font-size: 15px;
+        padding: 14px 20px;
+
+        &.btn-add-plan {
+          padding: 14px 0;
+          margin: 0 5px;
+        }
+      }
+    }
+  }
+
+  .fact {
+    .title {
+      font-size: 15px;
+    }
+
+    .fa-plus, .fa-minus {
+      font-size: 14px;
+    }
+  }
+
+  .fact-info {
+    > div {
+      display: flex;
+    }
+
+    .fact-box {
+      div, span {
+        font-size: 15px !important;
+        color: $dark !important;
+      }
+    }
+
+    &:nth-child(4n) {
+      font-weight: 600;
+      color: $dark;
+    }
+  }
+
+}

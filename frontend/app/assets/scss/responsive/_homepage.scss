@@ -1,0 +1,37 @@
+#homepage {
+
+  .bg-generic {
+    padding-top: 50px;
+
+    .head {
+      margin-top: 94px;
+      float: right;
+
+      h3 {
+        font-size: 60px;
+        line-height: 66px;
+      }
+
+      p {
+        font-size: 18px;
+      }
+    }
+
+    form {
+      float: left;
+    }
+  }
+
+  .intro {
+
+    .container {
+      padding: 0;
+    }
+
+    &-item {
+      .photo {
+        margin-top: 55px;
+      }
+    }
+  }
+}

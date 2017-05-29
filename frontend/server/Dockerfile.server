@@ -1,0 +1,5 @@
+FROM nginx:1.11.1
+EXPOSE 8282
+COPY . /server
+ADD build.tar.gz /app
+CMD ["/server/entrypoint.sh"]

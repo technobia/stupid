@@ -1,0 +1,25 @@
+{
+  "name": "ehealthscanner-backend",
+  "version": false,
+  "ambientDependencies": {
+    "bluebird": "github:DefinitelyTyped/DefinitelyTyped/bluebird/bluebird.d.ts#7de6c3dd94feaeb21f20054b9f30d5dabc5efabd",
+    "body-parser": "github:DefinitelyTyped/DefinitelyTyped/body-parser/body-parser.d.ts#fc341765ebbb04b7109981a25dced01f488f4d94",
+    "chai": "github:DefinitelyTyped/DefinitelyTyped/chai/chai.d.ts#6766ed1d0faf02ede9e2edf2e66bbb2388c825ec",
+    "errorhandler": "github:DefinitelyTyped/DefinitelyTyped/errorhandler/errorhandler.d.ts#fc341765ebbb04b7109981a25dced01f488f4d94",
+    "express": "registry:dt/express#4.0.0+20160317120654",
+    "express-serve-static-core": "registry:dt/express-serve-static-core#0.0.0+20160322035842",
+    "lodash": "github:DefinitelyTyped/DefinitelyTyped/lodash/lodash-3.10.d.ts#7de6c3dd94feaeb21f20054b9f30d5dabc5efabd",
+    "method-override": "github:DefinitelyTyped/DefinitelyTyped/method-override/method-override.d.ts#fc341765ebbb04b7109981a25dced01f488f4d94",
+    "mime": "github:DefinitelyTyped/DefinitelyTyped/mime/mime.d.ts#fc341765ebbb04b7109981a25dced01f488f4d94",
+    "mocha": "registry:dt/mocha#2.2.5+20160317120654",
+    "multer": "registry:dt/multer#0.0.0+20160317120654",
+    "node": "registry:dt/node#6.0.0+20160720070758",
+    "node-uuid": "github:DefinitelyTyped/DefinitelyTyped/node-uuid/node-uuid-base.d.ts#56295f5058cac7ae458540423c50ac2dcf9fc711",
+    "sequelize": "github:DefinitelyTyped/DefinitelyTyped/sequelize/sequelize.d.ts#7de6c3dd94feaeb21f20054b9f30d5dabc5efabd",
+    "serve-static": "github:DefinitelyTyped/DefinitelyTyped/serve-static/serve-static.d.ts#fc341765ebbb04b7109981a25dced01f488f4d94",
+    "validator": "github:DefinitelyTyped/DefinitelyTyped/validator/validator.d.ts#7de6c3dd94feaeb21f20054b9f30d5dabc5efabd"
+  },
+  "dependencies": {
+    "node-uuid": "registry:npm/node-uuid#1.4.0+20160224202522"
+  }
+}

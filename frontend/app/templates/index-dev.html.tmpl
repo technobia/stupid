@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head lang="en">
+    <base href="/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ehealthscanner(dev)</title>
+    <link rel='shortcut icon' type='image/x-icon' href='assets/img/favicon.ico' />
+    <script data-main="/src/require.cfg.js" src="/node_modules/requirejs/require.js"></script>
+    <!--  Widget Code -->
+    <!--<script async src="https://s.tagove.com/a-8cde9/init.js"></script>-->
+    <!--<script async src="https://s.tagove.com/main.js"></script>-->
+    <!-- / Widget Code -->
+    <link rel="stylesheet" href="/build/<!-- @echo pkg_name -->.min.css" />
+</head>
+<body>
+<div ng-view></div>
+<script type="text/ng-template" id="templates/dashboard/layout.html">
+    <nav class="navbar navbar-default" ng-include="'templates/dashboard/header.html'"></nav>
+    <div class="main-side" ng-include="pageContent"></div>
+</script>
+</body>
+</html>

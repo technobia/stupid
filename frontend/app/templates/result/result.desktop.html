@@ -1,0 +1,98 @@
+<div class="container clearfix">
+    <div class="row margin-top-30">
+        <div class="col-lg-2">
+            <h5 class="font-weight-semi-bold">FILTER BY</h5>
+            <div ng-include="'templates/result/filter.content.html'"></div>
+        </div>
+        <div class="col-lg-8" ng-if="data.plans.length !== 0">
+            <h5 class="font-weight-semi-bold" style="font-size:16px;">
+                We found <span class="text-danger">{{data.plans.length}}</span> health plan(s) for you
+            </h5>
+            <div class="result-list clearfix">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="result-list-item desktop clearfix" ng-repeat="plan in data.plans">
+                            <div class="left-block">
+                                <div class="text-center money-block margin-bottom-20" data-step="6" data-intro="This is a tooltip!" data-position="right">
+                                    <sup>US$</sup>
+                                    <span class="text-primary">{{plan.total_annual_premium}}</span>
+                                    <sub>/month</sub>
+                                </div>
+                                <div class="buttons-block" data-step="7" data-intro="This is a tooltip!"data-position="right">
+                                    <button class="btn btn-primary" style="margin-bottom: 8px;" ng-click="fn.gotoBuyNow(plan)">Apply now</button>
+                                    <button class="btn btn-primary btn-trans">
+                                        More details
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="right-block" data-step="5" data-intro="This is a tooltip!" data-position="top">
+                                <div class="margin-bottom-25">
+                                    <div class="left-child-block text-center logo-block">
+                                        <img ng-src="upload/logos/{{plan.logo}}"/>
+                                    </div>
+                                    <div class="right-child-block">
+                                        <div class="font-weight-semi-bold" style="font-size: 17px;">{{plan.company}}</div>
+                                        <span class="text-grey">{{plan.planName}}</span>
+                                    </div>
+                                </div>
+
+                                <div class="margin-bottom-5">
+                                    <div class="left-child-block font-weight-semi-bold">Area of cover</div>
+                                    <div class="right-child-block text-grey">{{plan.areaOfCover}}</div>
+                                </div>
+                                <div class="margin-bottom-5">
+                                    <div class="left-child-block font-weight-semi-bold">Maximum cover</div>
+                                    <div class="right-child-block text-grey">{{plan.maximumCover}}</div>
+                                </div>
+                                <div class="margin-bottom-25">
+                                    <div class="left-child-block font-weight-semi-bold">Excess</div>
+                                    <div class="right-child-block text-grey">{{plan.excess}}</div>
+                                </div>
+                                <div class="margin-bottom-5">
+                                    <div class="left-child-block font-weight-semi-bold">Outpatient cover</div>
+                                    <div class="right-child-block text-grey">
+                                        <span class="fa margin-right-5"
+                                              ng-class="fn.getChecked(plan.outPatientCover.checked)"></span>
+                                        {{plan.outPatientCover.text}}
+                                    </div>
+                                </div>
+
+                                <div class="margin-bottom-5">
+                                    <div class="left-child-block font-weight-semi-bold">Dental cover</div>
+                                    <div class="right-child-block text-grey">
+                                        <span class="fa margin-right-5"
+                                              ng-class="fn.getChecked(plan.dentalCover.checked)"></span>
+                                        {{plan.dentalCover.text}}
+                                    </div>
+                                </div>
+                                <div class="margin-bottom-5">
+                                    <div class="left-child-block font-weight-semi-bold">Maternity cover</div>
+                                    <div class="right-child-block text-grey">
+                                        <span class="fa margin-right-5"
+                                              ng-class="fn.getChecked(plan.maternityCover.checked)"></span>
+                                        {{plan.maternityCover.text}}
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="left-child-block font-weight-semi-bold">Optical cover</div>
+                                    <div class="right-child-block text-grey">
+                                        <span class="fa margin-right-5"
+                                              ng-class="fn.getChecked(plan.opticalCover.checked)"></span>
+                                        {{plan.opticalCover.text}}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="btn-compare" ng-class="fn.isDetailPicked(plan);" ng-click="picked = !picked;fn.pickDetail(picked, plan);" data-step="8" data-intro="This is a tooltip!" data-position="left">
+                                <span class="text">Compare now</span>
+                                <span class="fa fa-check"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-include="'templates/result/compare.popup.html'"></div>
+</div>

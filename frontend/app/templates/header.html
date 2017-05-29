@@ -1,0 +1,22 @@
+<div class="container-fluid" ng-controller="HeaderController" ng-init="event.onLoad()">
+    <div class="navbar-header">
+        <div ng-click="fn.onClickBackButton()" class="navbar-brand navbar-brand-back pointer" ng-if="isShowBackButton">
+            <span class="fa fa-angle-left"></span>
+            <span class="small margin-left-5">BACK</span>
+        </div>
+        <button type="button" class="navbar-toggle no-padding no-margin" ng-click="isHeaderCollapsed = !isHeaderCollapsed">
+            <span class="ic-hamburger"></span>
+        </button>
+        <a class="navbar-brand navbar-brand-center no-padding" href="javascript:void(0);" ng-click="fn.onOpenIntro()">
+            <img alt="eHealthScanner" src="assets/img/logo-eHealthscanner.svg">
+        </a>
+    </div>
+
+    <div class="navbar-collapse" uib-collapse="!isHeaderCollapsed">
+        <ul class="nav navbar-nav">
+            <li><a href="#">Customer service</a></li>
+            <li><a href="#">Help</a></li>
+            <li><a href="#">Blog</a></li>
+        </ul>
+    </div><!--/.nav-collapse -->
+</div>

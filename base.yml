@@ -1,0 +1,14 @@
+version: '2'
+services:
+
+  mysql:
+    image: mysql:5.7.12
+#    volumes:
+#      - ${DATA_FOLDER}:/var/lib/mysql
+    env_file:
+      - ./env/${ENVIRONMENT}/mysql.properties
+
+  proxy:
+    build: configuration/nginx
+    env_file:
+      - ./env/${ENVIRONMENT}/nginx.properties

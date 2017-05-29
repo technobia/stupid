@@ -1,0 +1,25 @@
+set -euo pipefail
+
+FRONTEND_IMAGE=${DOCKER_REGISTRY}/ehealthscanner-frontend
+
+build_frontend() {
+    (
+        cd app
+        docker build ${1:-} \
+            --build-arg NPM_CONFIG_REGISTRY=${NPM_CONFIG_REGISTRY:-} \
+            --build-arg PHANTOMJS_CDNURL=${PHANTOMJS_CDNURL:-} \
+            --build-arg SASS_BINARY_SITE=${SASS_BINARY_SITE:-} \
+            -t ehealthscanner-frontend-builder:latest \
+            -f Dockerfile.builder .
+    )
+
+    docker run --rm ehealthscanner-frontend-builder:latest > server/build.tar.gz
+
+    (
+        cd server
+        docker build \
+            -t ${FRONTEND_IMAGE}:latest \
+            -f Dockerfile.server .
+    )
+
+}

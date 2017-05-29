@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="2.4" jmeter="2.9 r1437961">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath">/Users/Kate/Downloads/mysql-connector-java-5.1.39/mysql-connector-java-5.1.39-bin.jar</stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Test1" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">5</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">0</stringProp>
+        <longProp name="ThreadGroup.start_time">1469812543000</longProp>
+        <longProp name="ThreadGroup.end_time">1469812543000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="n_PlanCases" enabled="true">
+          <boolProp name="autocommit">true</boolProp>
+          <stringProp name="checkQuery">Select 1</stringProp>
+          <stringProp name="connectionAge">5000</stringProp>
+          <stringProp name="dataSource">ehealthscanner</stringProp>
+          <stringProp name="dbUrl">jdbc:mysql://127.0.0.1:3506/ehealthscanner</stringProp>
+          <stringProp name="driver">com.mysql.jdbc.Driver</stringProp>
+          <boolProp name="keepAlive">true</boolProp>
+          <stringProp name="password">ehealthscanner</stringProp>
+          <stringProp name="poolMax">10</stringProp>
+          <stringProp name="timeout">1000</stringProp>
+          <stringProp name="transactionIsolation">DEFAULT</stringProp>
+          <stringProp name="trimInterval">6000</stringProp>
+          <stringProp name="username">ehealthscanner</stringProp>
+          <stringProp name="TestPlan.comments">No index fields</stringProp>
+        </JDBCDataSource>
+        <hashTree/>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Query 1" enabled="true">
+          <stringProp name="dataSource">ehealthscanner</stringProp>
+          <stringProp name="query">SELECT *
+FROM company_plans
+WHERE list_of_sub_zone_of_cover_countries_ids LIKE &apos;%,199,%&apos;
+AND dental_cover=&apos;no&apos;
+AND age_minimum&lt;=&apos;7&apos;
+AND age_maximum&gt;=&apos;7&apos;;
+
+</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="TestPlan.comments">			</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Query 2" enabled="true">
+          <stringProp name="dataSource">ehealthscanner</stringProp>
+          <stringProp name="query">SELECT MAX(x.plan_title) as plan_title,
+MAX(x.plan_name) as plan_name,
+MAX(x.plan_id) as plan_id,
+MAX(x.uuid) as uuid,
+MAX(x.company_name) as company_name,
+MAX(x.area_of_cover) as area_of_cover,
+MAX(x.age_minimum) as age_minimum,
+MAX(x.age_maximum) as age_maximum,
+MAX(x.currency) as currency,
+MAX(x.annual_premium) as annual_premium,
+MAX(x.excess) as excess,
+MAX(x.maximum_cover) as maximun_cover,
+MAX(x.maximum_cover_periodicity) as maximun_cover_periodicity,
+MAX(x.excess_periodicity) as excess_periodicity,
+MAX(x.outpatient_cover_maximum) as outpatient_cover_maximum,
+MAX(x.outpatient_cover_periodicity) as outpatient_cover_periodicity,
+MAX(x.outpatient_cover) as outpatient_cover,
+MAX(x.outpatient_cover_information) as outpatient_cover_information,
+MAX(x.dental_cover_maximum) as dental_cover_maximum,
+MAX(x.dental_cover_periodicity) as dental_cover_periodicity,
+MAX(x.dental_cover) as dental_cover,
+MAX(x.dental_cover_information) as dental_cover_information,
+MAX(x.maternity_cover_maximum) as maternity_cover_maximum,
+MAX(x.maternity_cover_periodicity) as maternity_cover_periodicity,
+MAX(x.maternity_cover) as maternity_cover,
+MAX(x.maternity_cover_information) as maternity_cover_information,
+MAX(x.optical_cover_maximum) as optical_cover_maximum,
+MAX(x.optical_cover_periodicity) as optical_cover_periodicity,
+MAX(x.optical_cover) as optical_cover,
+MAX(x.optical_cover_information) as optical_cover_information,
+MAX(x.other_highlights) as other_highlights,
+MAX(x.only_expat_insurance) as only_expat_insurance,
+MAX(x.logo_url) as logo_url,
+MAX(x.benefits_schedule_pdf_url) as benefits_schedule_pdf_url,
+MAX(x.general_conditions_pdf_url) as general_conditions_pdf_url,
+MAX(x.application_form_pdf_url) as application_form_pdf_url,
+MAX(x.co_branding) as co_branding,
+MAX(x.co_branding_link) as co_branding_link,
+MAX(x.electronic_signature_application_link) as electronic_signature_application_link,
+COUNT(x.plan_id) as participants,
+SUM(x.`annual_premium`) as total_annual_premium
+ FROM (  SELECT * FROM company_plans cp  WHERE cp.age_minimum &lt;= 36 and cp.age_maximum &gt;= 36
+ UNION ALL
+ SELECT * FROM company_plans cp  WHERE cp.age_minimum &lt;= 5 and cp.age_maximum &gt;= 5
+ ) as x  WHERE 1 = 1  AND outpatient_cover = 1  AND dental_cover = 1  AND excess &lt;= &quot;200&quot;  AND master_areas_of_cover like &quot;%;3;%&quot;  AND list_of_sub_zone_of_cover_countries_ids like &quot;%;5;%&quot;  AND list_of_residence_plan_availability_country_ids like &quot;%;5;%&quot;  GROUP BY plan_id  HAVING participants = 2  ORDER BY annual_premium asc  LIMIT 20 OFFSET 0</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="TestPlan.comments">			</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Summary Report" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>false</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

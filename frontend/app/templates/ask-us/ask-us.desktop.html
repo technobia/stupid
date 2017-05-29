@@ -1,0 +1,186 @@
+<div class="container clearfix" ng-init="event.onLoad();">
+    <div class="col-lg-8 col-lg-offset-2 margin-top-15">
+        <div class="row">
+            <div class="col-lg-12" ng-if="!!data.plan" ng-init="plan = data.plan">
+                <h5 class="font-weight-semi-bold text-uppercase" style="font-size:16px;">
+                    health plan for you
+                </h5>
+                <div class="result-list clearfix">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="result-list-item desktop clearfix">
+                                <div class="left-block">
+                                    <div class="text-center money-block margin-bottom-20">
+                                        <sup>US$</sup>
+                                        <span class="text-primary">{{plan.total_annual_premium}}</span>
+                                        <sub>/month</sub>
+                                    </div>
+                                    <div class="buttons-block">
+                                        <button class="btn btn-primary btn-trans margin-top-50" ng-click="event.onOpenDetail(plan)">
+                                            More details
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="right-block">
+                                    <div class="margin-bottom-25">
+                                        <div class="left-child-block text-center logo-block">
+                                            <img ng-src="upload/logos/{{plan.logo}}"/>
+                                        </div>
+                                        <div class="right-child-block">
+                                            <div class="font-weight-semi-bold" style="font-size: 17px;">{{plan.company}}</div>
+                                            <span class="text-grey">{{plan.planName}}</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="margin-bottom-5">
+                                        <div class="left-child-block font-weight-semi-bold">Area of cover</div>
+                                        <div class="right-child-block text-grey">{{plan.areaOfCover}}</div>
+                                    </div>
+                                    <div class="margin-bottom-5">
+                                        <div class="left-child-block font-weight-semi-bold">Maximum cover</div>
+                                        <div class="right-child-block text-grey">{{plan.maximumCover}}</div>
+                                    </div>
+                                    <div class="margin-bottom-25">
+                                        <div class="left-child-block font-weight-semi-bold">Excess</div>
+                                        <div class="right-child-block text-grey">{{plan.excess}}</div>
+                                    </div>
+                                    <div class="margin-bottom-5">
+                                        <div class="left-child-block font-weight-semi-bold">Outpatient cover</div>
+                                        <div class="right-child-block text-grey">
+                                        <span class="fa margin-right-5"
+                                              ng-class="fn.getChecked(plan.outPatientCover.checked)"></span>
+                                            {{plan.outPatientCover.text}}
+                                        </div>
+                                    </div>
+
+                                    <div class="margin-bottom-5">
+                                        <div class="left-child-block font-weight-semi-bold">Dental cover</div>
+                                        <div class="right-child-block text-grey">
+                                        <span class="fa margin-right-5"
+                                              ng-class="fn.getChecked(plan.dentalCover.checked)"></span>
+                                            {{plan.dentalCover.text}}
+                                        </div>
+                                    </div>
+                                    <div class="margin-bottom-5">
+                                        <div class="left-child-block font-weight-semi-bold">Maternity cover</div>
+                                        <div class="right-child-block text-grey">
+                                        <span class="fa margin-right-5"
+                                              ng-class="fn.getChecked(plan.maternityCover.checked)"></span>
+                                            {{plan.maternityCover.text}}
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="left-child-block font-weight-semi-bold">Optical cover</div>
+                                        <div class="right-child-block text-grey">
+                                        <span class="fa margin-right-5"
+                                              ng-class="fn.getChecked(plan.opticalCover.checked)"></span>
+                                            {{plan.opticalCover.text}}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="btn-compare">Compare now</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <form name="Form">
+                <div class="col-lg-12">
+                    <h5 class="font-weight-semi-bold" style="font-size:16px;">
+                        First name <span class="text-danger">*</span>
+                    </h5>
+                    <div class="form-group" ng-class="{'has-error': Form.firstName.$dirty && Form.firstName.$invalid}">
+                        <input type="text" class="form-control" name="first-name" ng-model="data.formData.firstName" required>
+                    </div>
+                </div>
+
+                <div class="col-lg-12">
+                    <h5 class="font-weight-semi-bold" style="font-size:16px;">
+                        Last name <span class="text-danger">*</span>
+                    </h5>
+                    <div class="form-group" ng-class="{'has-error': Form.lastName.$dirty && Form.lastName.$invalid}">
+                        <input type="text" class="form-control" name="last-name" ng-model="data.formData.lastName" required>
+                    </div>
+                </div>
+
+                <div class="col-lg-12">
+                    <h5 class="font-weight-semi-bold" style="font-size:16px;">
+                        Email address <span class="text-danger">*</span>
+                    </h5>
+                    <div class="form-group">
+                        <input type="email" class="form-control" name="email" ng-model="data.formData.email" required>
+                    </div>
+                </div>
+
+                <div class="col-lg-12">
+                    <h5 class="font-weight-semi-bold" style="font-size:16px;">
+                        Telephone number (specify country code)
+                    </h5>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="phone" ng-model="data.formData.phone">
+                    </div>
+                </div>
+
+                <div class="col-lg-12">
+                    <h5 class="font-weight-semi-bold" style="font-size:16px;">
+                        Request a phone callback
+                    </h5>
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label>
+                                <input class="checkbox" type="checkbox" name="request" ng-model="data.formData.request">
+                                <span></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <h5 class="font-weight-semi-bold" style="font-size:16px;">
+                        Preferred call back date and time
+                    </h5>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="preferred" ng-model="data.formData.preferred">
+                    </div>
+                </div>
+
+                <div class="col-lg-12">
+                    <h5 class="font-weight-semi-bold" style="font-size:16px;">
+                        Callback location (City, Country)
+                    </h5>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="location" ng-model="data.formData.location">
+                    </div>
+                </div>
+
+                <div class="col-lg-12">
+                    <h5 class="font-weight-semi-bold" style="font-size:16px;">
+                        Questions
+                    </h5>
+                    <div class="form-group">
+                        <textarea class="form-control" rows="5" name="comment" ng-model="data.formData.questions"></textarea>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-lg-push-8">
+                    <div class="form-group no-margin">
+                        <button ng-disabled="Form.$invalid"
+                                class="btn btn-primary"
+                                style="width:100%;"
+                                ng-click="event.onClickAskUs(data.formData)">Ask us!</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!--<div class="row text-center">-->
+    <!--<div class="col-lg-4 col-lg-push-3 margin-top-50 margin-bottom-50">-->
+    <!--<button class="btn btn-primary btn-trans btn-more-plans">-->
+    <!--View more plans-->
+    <!--</button>-->
+    <!--</div>-->
+    <!--</div>-->
+</div>

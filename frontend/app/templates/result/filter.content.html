@@ -1,0 +1,85 @@
+<div class="result-filter clearfix">
+    <fieldset data-step="1" data-intro="This is a tooltip!" data-position="right">
+        <h5><strong>Area of cover</strong></h5>
+        <div class="checkbox" ng-repeat="item in data.selection.area">
+            <label>
+                <input type="radio"
+                       name="masterAreaOfCover"
+                       class="checkbox"
+                       ng-value="item.master_area_id"
+                       ng-model="data.filter.masterAreaOfCover"
+                       ng-change="event.onFilter(data.filter)"
+                       ng-checked="data.filter.masterAreaOfCover === item.master_area_id"/>
+                <span>{{item.master_area_name}}</span>
+            </label>
+        </div>
+    </fieldset>
+
+    <fieldset class="margin-top-15" data-step="2" data-intro="This is a tooltip!" data-position="right">
+        <h5><strong>Coverage options</strong></h5>
+        <div class="checkbox disabled ">
+            <label>
+                <input type="checkbox" class="checkbox" checked disabled/>
+                <span>Hospitalization</span>
+            </label>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox"
+                       class="checkbox"
+                       ng-change="event.onFilter(data.filter)"
+                       ng-checked="data.filter.outpatientCover"
+                       ng-model="data.filter.outpatientCover"/>
+                <span>Outpatient</span>
+            </label>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox"
+                       class="checkbox"
+                       ng-change="event.onFilter(data.filter)"
+                       ng-checked="data.filter.dentalCover"
+                       ng-model="data.filter.dentalCover"/>
+                <span>Dental</span>
+            </label>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox"
+                       class="checkbox"
+                       ng-change="event.onFilter(data.filter)"
+                       ng-checked="data.filter.maternityCover"
+                       ng-model="data.filter.maternityCover" />
+                <span>Maternity</span>
+            </label>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox"
+                       class="checkbox"
+                       ng-change="event.onFilter(data.filter)"
+                       ng-checked="data.filter.opticalCover"
+                       ng-model="data.filter.opticalCover" />
+                <span>Optical</span>
+            </label>
+        </div>
+    </fieldset>
+
+    <fieldset class="margin-top-15" data-step="3" data-intro="This is a tooltip!" data-position="right">
+        <h5><strong>Excess <span class="text-grey">- US$</span></strong></h5>
+        <rzslider rz-slider-model="data.sliderExcess.value"
+                  rz-slider-options="data.sliderExcess.options"></rzslider>
+        <div class="slider-result">
+            <span class="form-control">{{data.sliderExcess.value | number}}</span>
+        </div>
+    </fieldset>
+
+    <fieldset class="margin-top-15" data-step="4" data-intro="This is a tooltip!" data-position="right">
+        <h5><strong>Maximum cover <span class="text-grey">- US$</span></strong></h5>
+        <rzslider rz-slider-model="data.sliderCover.value"
+                  rz-slider-options="data.sliderCover.options"></rzslider>
+        <div class="slider-result">
+            <span class="form-control">{{data.sliderCover.value | number}}</span>
+        </div>
+    </fieldset>
+</div>

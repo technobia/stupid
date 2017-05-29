@@ -1,0 +1,66 @@
+$mr-bottom: 188px;
+#homepage {
+  .bg-generic {
+    background: url('/assets/img/generic-background.png') no-repeat center top;
+    background-size: cover;
+    position: relative;
+    padding-bottom: 35px;
+
+    .content {
+      padding-top: 20px;
+    }
+  }
+
+  .head {
+    margin: 20px 0;
+
+    h3 {
+      @extend .font-secondary;
+      @extend .font-weight-bold;
+      font-size: 36px;
+      line-height: 36px;
+      color: $primary;
+      margin-top: 0;
+      margin-bottom: 19px;
+    }
+
+    p {
+      color: $primary;
+      font-size: 14px;
+    }
+  }
+
+  .intro {
+    background-color: white;
+
+    .container {
+      padding: 0 25px;
+    }
+
+    .row {
+      padding-bottom: 50px;
+    }
+
+    &-item {
+      margin-top: 15px;
+
+      .photo {
+        margin-top: 45px;
+        height: 53px;
+      }
+
+      .title {
+        margin-top: 40px;
+        margin-bottom: 29px;
+        font-size: 16px;
+        color: $primary;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+      p {
+        @include make-text($font-size: 15px);
+        text-align: center;
+      }
+    }
+  }
+}

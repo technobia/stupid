@@ -1,0 +1,40 @@
+.checkbox {
+  display: block;
+  margin-top: 6px;
+  margin-bottom: 6px;
+
+  label {
+    padding: 0;
+  }
+}
+
+input[type="checkbox"].checkbox,
+input[type="radio"].checkbox {
+  visibility: hidden;
+  position: absolute;
+  width: 0;
+  height: 0;
+
+  & + span {
+    font-size: 15px;
+    line-height: 15px;
+    color: #262626;
+    display: inline-block;
+    white-space: nowrap;
+  }
+
+  & + span:before {
+    @extend .font-awesome;
+    content: $fa-var-square-o;
+    font-size: 18px;
+    width: 25px;
+    display: inline-block;
+    color: $dark-1;
+    vertical-align: middle;
+  }
+
+  &:checked + span:before {
+    content: $fa-var-check-square;
+    color: $blue;
+  }
+}

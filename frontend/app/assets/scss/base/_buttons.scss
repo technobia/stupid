@@ -1,0 +1,43 @@
+@mixin make-hover($border) {
+  border-color: darken($border, 12%);
+};
+
+.btn-trans {
+  &.btn-default {
+    @include button-variant($btn-default-bg, transparent, $btn-default-border);
+  }
+  &.btn-primary {
+    @include button-variant($btn-primary-bg, transparent, $btn-primary-border);
+  }
+  &.btn-success {
+    @include button-variant($btn-success-bg, transparent, $btn-success-border);
+  }
+  &.btn-info {
+    @include button-variant($btn-info-bg, transparent, $btn-info-border);
+  }
+  &.btn-warning {
+    @include button-variant($btn-warning-bg, transparent, $btn-warning-border);
+  }
+  &.btn-danger {
+    @include button-variant($btn-danger-bg, transparent, $btn-danger-border);
+  }
+
+  &.btn-default:hover {
+    @include make-hover($btn-default-border);
+  }
+  &.btn-primary:hover {
+    @include make-hover($btn-primary-border);
+  }
+  &.btn-success:hover {
+    @include make-hover($btn-success-border);
+  }
+  &.btn-info:hover {
+    @include make-hover($btn-info-border);
+  }
+  &.btn-warning:hover {
+    @include make-hover($btn-warning-border);
+  }
+  &.btn-danger:hover {
+    @include make-hover($btn-danger-border);
+  }
+}

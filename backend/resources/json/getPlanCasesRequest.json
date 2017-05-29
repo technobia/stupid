@@ -1,0 +1,90 @@
+/**
+ * Created by x on 01/09/16.
+ */
+
+//{
+//    "stepOne": {
+//    "numberInsured": "3",
+//        "requirement": [
+//        "Maternity cover",
+//        "Dental cover",
+//        "Outpatient cover"
+//    ],
+//        "countryOfResidence": "Albania"
+//},
+//    "stepTwo": {
+//    "persons": [
+//        {
+//            "id": "26f3a309-4828-0d1e-9400-3b554ebf494c",
+//            "age": "47",
+//            "gender": "Male",
+//            "nationality": "Albania",
+//            "relationShip": "",
+//            "masterAreaOfCover": "South East Asia",
+//            "$$hashKey": "object:1088"
+//        },
+//        {
+//            "id": "40daa39c-229b-cda3-7e97-9077ba17ecf6",
+//            "age": "17",
+//            "gender": "Female",
+//            "nationality": "",
+//            "relationShip": "Child",
+//            "masterAreaOfCover": "",
+//            "$$hashKey": "object:1089"
+//        },
+//        {
+//            "id": "126cffc9-4541-eba4-c9e7-7135396c4a35",
+//            "age": "5",
+//            "gender": "Male",
+//            "nationality": "",
+//            "relationShip": "Child",
+//            "masterAreaOfCover": "",
+//            "$$hashKey": "object:1090"
+//        }
+//    ]
+//},
+//    "filter": {
+//        "masterAreaOfCover": "South East Asia",
+//        "countryOfResidence": "Taiwan",
+//        "nationality": "France",
+//        "numberInsured": "3",
+//        "outpatientCover": "1",
+//        "dentalCover": "1",
+//        "maternityCover": "1",
+//        "opticalCover": "0",
+//        "excess": "200",
+//        "page": "1"
+//    }
+//}
+
+// Add ages as an Array
+//    "ages": ["47", "17", "12"]
+
+//{
+//    "masterAreaOfCover": "South East Asia",
+//    "countryOfResidence": "Taiwan",
+//    "nationality": "France",
+//    "numberInsured": "3",
+//    "age": "47",
+//    "outpatientCover": "1",
+//    "dentalCover": "1",
+//    "maternityCover": "1",
+//    "opticalCover": "0",
+//    "excess": "200",
+//    "page": "1"
+//}
+
+//For testing: using country & master area id's
+{
+    "masterAreaOfCover": "3",
+    "countryOfResidence": "220",
+    "nationality": "70",
+    "numberInsured": "3",
+    "age": "47",
+    "outpatientCover": "1",
+    "dentalCover": "1",
+    "maternityCover": "1",
+    "opticalCover": "0",
+    "excess": "200",
+    "page": "1"
+}

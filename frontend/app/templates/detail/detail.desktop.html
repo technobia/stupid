@@ -1,0 +1,142 @@
+<div id="detail" class="row">
+    <div class="container padding-top-30">
+        <div class="row padding-bottom-25 comparison">
+            <div class="col-lg-3">
+                <div class="bg-color-white plan-item adding-plan your-plan padding-10">
+                    <span>Your plan</span>
+                </div>
+            </div>
+
+            <div class="col-lg-3" ng-repeat="element in data.length">
+                <div ng-if="!data.details[$index]" class="bg-color-white plan-item adding-plan">
+                    <div class="btn col-lg-12 btn-add-plan">Add plan to compare</div>
+                </div>
+
+                <div ng-if="data.details[$index]" class="bg-color-white padding-10 plan-item">
+                    <span class="fa fa-close" ng-if="$index > 0"></span>
+                    <div class="text-center col-lg-4 padding-0 margin-top-10">
+                        <img ng-src="upload/logos/{{data.details[$index].logo}}"/>
+                    </div>
+                    <div class="col-lg-8 margin-bottom-25 margin-top-10 padding-left-0 details">
+                        <div class="plan-name padding-left-5">{{data.details[$index].company}}</div>
+                        <div class="plan-desc padding-left-5">{{data.details[$index].planName}}</div>
+                    </div>
+                    <div class="text-center col-lg-12 margin-top-15 margin-bottom-30 cost">
+                        <span class="currency">US$</span>
+                        <span class="amount">{{data.details[$index].total_annual_premium}}</span>
+                        <span class="per">/month</span>
+                    </div>
+                    <div class="text-center btn-wrapper">
+                        <button class="btn btn-primary col-xs-12 margin-bottom-5 margin-right-5"
+                                ng-click="fn.gotoBuyNow(data.details[$index])">
+                            Apply now
+                        </button>
+                        <button class="btn btn-ask col-xs-12 margin-bottom-5"
+                                ng-click="fn.gotoAskUs(data.details[$index]);">
+                            Ask us
+                        </button>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div ng-click="bool = !bool" class="text-center text-uppercase align-middle fact" ng-class="bool ? 'active' : ''">
+                    <span class="fa margin-left-10" ng-class="bool ? 'fa-minus' : 'fa-plus'"></span>
+                    <span class="title col-lg-4 col-lg-offset-4">Plan elements</span>
+                </div>
+                <div uib-collapse="!bool" class="clearfix fact-info">
+                    <div>
+                        <div class="col-lg-3 text-center bg-color-white padding-20 fact-box">
+                            <div class="text-right">Area of cover</div>
+                        </div>
+                        <div class="col-lg-3 text-center bg-color-white padding-20 fact-box"
+                             ng-repeat="i in data.length">
+                            <span>{{data.details[$index].areaOfCover}}</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="col-lg-3 text-center bg-color-white padding-20 fact-box">
+                            <div class="text-right">Maximum cover</div>
+                        </div>
+                        <div class="col-lg-3 text-center bg-color-white padding-20 fact-box"
+                             ng-repeat="i in data.length">
+                            <span>{{data.details[$index].maximumCover}}</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="col-lg-3 text-center bg-color-white padding-20 fact-box">
+                            <div class="text-right">Excess</div>
+                        </div>
+                        <div class="col-lg-3 text-center bg-color-white padding-20 fact-box"
+                             ng-repeat="i in data.length">
+                            <span>{{data.details[$index].excess}}</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="col-lg-3 text-center bg-color-white padding-20 fact-box">
+                            <div class="text-right">Outpatient cover</div>
+                        </div>
+                        <div class="col-lg-3 text-center bg-color-white padding-20 fact-box"
+                             ng-repeat="i in data.length">
+                            <span ng-if="data.details[$index]">
+                                <i class="fa" ng-class="fn.getChecked(data.details[$index].outPatientCover.checked)"></i>
+                                {{data.details[$index].outPatientCover.text}}
+                            </span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="col-lg-3 text-center bg-color-white padding-20 fact-box">
+                            <div class="text-right">Dental cover</div>
+                        </div>
+                        <div class="col-lg-3 text-center bg-color-white padding-20 fact-box"
+                             ng-repeat="i in data.length">
+                            <span ng-if="data.details[$index]">
+                                <i class="fa" ng-class="fn.getChecked(data.details[$index].dentalCover.checked)"></i>
+                                {{data.details[$index].dentalCover.text}}
+                            </span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="col-lg-3 text-center bg-color-white padding-20 fact-box">
+                            <div class="text-right">Maternity cover</div>
+                        </div>
+                        <div class="col-lg-3 text-center bg-color-white padding-20 fact-box"
+                             ng-repeat="i in data.length">
+                            <span ng-if="data.details[$index]">
+                                <i class="fa" ng-class="fn.getChecked(data.details[$index].maternityCover.checked)"></i>
+                                {{data.details[$index].maternityCover.text}}
+                            </span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="col-lg-3 text-center bg-color-white padding-20 fact-box">
+                            <div class="text-right">Optical cover</div>
+                        </div>
+                        <div class="col-lg-3 text-center bg-color-white padding-20 fact-box"
+                             ng-repeat="i in data.length">
+                            <span ng-if="data.details[$index]">
+                                <i class="fa" ng-class="fn.getChecked(data.details[$index].opticalCover.checked)"></i>
+                                {{data.details[$index].opticalCover.text}}
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="text-center text-uppercase align-middle fact last">
+                    <span class="fa fa-plus margin-left-10"></span>
+                    <span class="title col-lg-4 col-lg-offset-4">When you have to go to hospital</span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

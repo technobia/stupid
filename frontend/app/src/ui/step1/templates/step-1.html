@@ -1,0 +1,221 @@
+<div id="step-1" ng-controller="StepOneController" ng-init="event.onLoad()">
+    <div class="row">
+        <div class="bg-generic">
+            <div class="container content">
+                <div class="col-lg-12">
+                    <div class="row head col-lg-5 col-sm-12 col-lg-push-6">
+                        <h3>Easy find your health care plan</h3>
+                        <p>Find right plan now</p>
+                    </div>
+                    <div class="row col-lg-5 col-sm-12">
+                        <form name="Form">
+                            <div class="form bg-color-white">
+                                <div class="form-group">
+                                    I want to cover
+                                    <div class="input-group">
+                                        <select name="number-insured">
+                                            <option>Me, my spouse and kids</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    I am a
+                                    <div class="input-group">
+                                        <select name="age">
+                                            <option>35</option>
+                                        </select>
+                                    </div>
+                                    year old
+                                    <div class="input-group">
+                                        <select name="gender">
+                                            <option>male</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    I am from
+                                    <div class="input-group">
+                                        <select name="country">
+                                            <option>France</option>
+                                        </select>
+                                    </div>
+                                    and I will reside in
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <select name="country">
+                                            <option>Vietnam</option>
+                                        </select>
+                                    </div>
+                                    during the valid time of the
+                                </div>
+                                health insurance.
+                                <div class="form-group padding-top-20">
+                                    My spouse
+                                    <div class="input-group">
+                                        <select name="age">
+                                            <option>32</option>
+                                        </select>
+                                    </div>
+                                    year old.
+                                </div>
+                                My kid(s) is/are:
+                                <div class="form-group">
+                                    a
+                                    <div class="input-group">
+                                        <select name="gender">
+                                            <option>boy</option>
+                                        </select>
+                                    </div>
+                                    of
+                                    <div class="input-group">
+                                        <select name="age">
+                                            <option>3</option>
+                                        </select>
+                                    </div>
+                                    year old
+                                    <span class="fa fa-minus-circle" aria-hidden="true"></span>
+                                </div>
+                                <div class="form-group">
+                                    a
+                                    <div class="input-group">
+                                        <select name="gender">
+                                            <option>girl</option>
+                                        </select>
+                                    </div>
+                                    of
+                                    <div class="input-group">
+                                        <select name="age">
+                                            <option>1</option>
+                                        </select>
+                                    </div>
+                                    year old
+                                    <span class="fa fa-minus-circle" aria-hidden="true"></span>
+                                </div>
+                                <div class="form-group col-lg-9">
+                                    <span class="fa fa-plus-circle" aria-hidden="true"></span> <span class="add-more">Add more child</span>
+                                </div>
+                                <div class="form-group">
+                                    Ideally, I would like to be covered in
+                                    <div class="input-group">
+                                        <select name="country">
+                                            <option></option>
+                                        </select>
+                                    </div>
+                                    .
+                                </div>
+                                <div class="devide"></div>
+                                <div>
+                                    This plan should cover:
+                                    <div class="row">
+                                        <div class="col-xs-6 col-lg-4">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" class="checkbox" />
+                                                    <span>Hospitalization</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-6 col-lg-4">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" class="checkbox" />
+                                                    <span>Outpatient</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-6 col-lg-4">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" class="checkbox" />
+                                                    <span>Dental</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-6 col-lg-4">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" class="checkbox" />
+                                                    <span>Optical</span>
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-xs-6 col-lg-4">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" class="checkbox" />
+                                                    <span>Maternity</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <span class="tip">* You should choose more than one</span>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12 col-lg-8 col-lg-offset-2">
+                                        <button ng-disabled="Form.$invalid" class="view-plan" ng-click="event.onSave(data.step)">Fine, view my plans</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="container-fluid row intro">
+        <div class="container">
+            <div class="intro-item col-xs-12 col-lg-3 bg-color-white text-center">
+                <div class="photo">
+                    <img src="/assets/img/small-print.png">
+                </div>
+                <div class="detail">
+                    <div class="title">
+                        SMALL PRINT
+                    </div>
+                    <p>We highlight exclusions, waiting periods and other vital informationfor your quick understanding.</p>
+                </div>
+            </div>
+            <div class="intro-item col-xs-12 col-lg-3 bg-color-white text-center">
+                <div class="photo">
+                    <img src="/assets/img/s-service.png">
+                </div>
+                <div class="detail">
+                    <div class="title">
+                        “s” service
+                    </div>
+                    <p>Enable email contact and get answering instant without any extra costs.</p>
+                </div>
+            </div>
+
+            <div class="intro-item col-xs-12 col-lg-3 bg-color-white text-center">
+                <div class="photo">
+                    <img src="/assets/img/flexibility.png">
+                </div>
+                <div class="detail">
+                    <div class="title">
+                        Flexibility
+                    </div>
+                    <p>Plan to suit your individual needs, convenience with live chat, voice and video conversations, electronic signing.</p>
+                </div>
+            </div>
+
+            <div class="intro-item col-xs-12 col-lg-3 bg-color-white text-center">
+                <div class="photo">
+                    <img src="/assets/img/do_it.png">
+                </div>
+                <div class="detail">
+                    <div class="title">
+                        Do it for you
+                    </div>
+                    <p>Access  objective view of what is offered on the market. Guide you to choose your most product every year probably.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

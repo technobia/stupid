@@ -1,0 +1,29 @@
+.form {
+  padding: 25px;
+
+  .form-group {
+    margin-bottom: 10px;
+
+    span,
+    .selection {
+      font-size: 15px;
+    }
+
+    .desktop-block {
+      display: block;
+    }
+  }
+
+  i.text-grey {
+    font-size: 15px;
+  }
+
+  .plan-chosen,
+  .desktop-font-size {
+    font-size: 15px;
+  }
+
+  .kids-block {
+    float: left;
+  }
+}

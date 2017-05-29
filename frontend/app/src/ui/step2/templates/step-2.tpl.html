@@ -1,0 +1,156 @@
+<div id="step-2" class="col-xs-12 no-padding" ng-init="event.onLoad()">
+    <fieldset>
+        <div class="well">
+            <h3 class="margin-top-0">Your details</h3>
+            <div class="margin-bottom-15">Cover for
+                <span class="label label-success margin-right-5">
+                    {{data.stepOne.numberInsured}}&nbsp;{{data.stepOne.numberInsured > 1 ? 'persons' : 'person'}}
+                </span>
+                <span class="label label-primary margin-right-5">
+                    Hospital cover
+                </span>
+                <span class="label label-primary margin-right-5" ng-repeat="item in data.stepOne.requirement">{{item}}</span>
+            </div>
+            <div class="row">
+                <div class="col-xs-2">
+                </div>
+                <div class="col-xs-2">
+                    <label
+                        tooltip-placement="right"
+                        tooltip-append-to-body="true"
+                        uib-tooltip="The age you will be this calendar year if your birthday hasn't yet passed
+                                    (i.e. if at the time of your search in September you are 30 years old and
+                                    that your birthday is in November, input 31 as your age in this field). ">
+                        Age
+                    </label>
+                </div>
+                <div class="col-xs-2">
+                    <label>Gender</label>
+                </div>
+                <div class="col-xs-3">
+                    <label>Nationality</label>
+                </div>
+                <div class="col-xs-3">
+                    <label
+                        tooltip-placement="right"
+                        tooltip-append-to-body="true"
+                        uib-tooltip='Area where you would like for your health insurance plan to cover you.
+                        For instance if you are living in Thailand,
+                        a "South East Asia" area of cover will likely be cheaper than a plan that covers you
+                        Worldwide while likely answering your needs.'>
+                        Ideal area of cover
+                    </label>
+                </div>
+            </div>
+            <form class="form-horizontal" name="Form">
+                <div class="form-group" ng-repeat="person in data.step.persons">
+                    <label class="col-xs-2 control-label" ng-if="$index === 0">Main insured</label>
+                    <label class="col-xs-2 control-label" ng-if="$index !== 0">Person {{$index + 1}}</label>
+                    <div class="col-xs-2">
+                        <div uib-dropdown>
+                            <div class="input-group" uib-dropdown-toggle>
+                                <input type="text" class="form-control" readonly required ng-model="person.age" placeholder="Age">
+                                <div class="input-group-addon"><span class="caret"></span></div>
+                            </div>
+                            <div class="list-group no-padding no-margin" uib-dropdown-menu>
+                                <a href="javascript:void(0);"
+                                   class="list-group-item"
+                                   key-navigate-directive
+                                   ng-click="person.age = item"
+                                   ng-class="{'active': item === person.age}"
+                                   ng-repeat="item in data.age track by $index">{{item}}</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-2">
+                        <div uib-dropdown>
+                            <div class="input-group" uib-dropdown-toggle>
+                                <input type="text" class="form-control" readonly required ng-model="person.gender" placeholder="Gender">
+                                <div class="input-group-addon"><span class="caret"></span></div>
+                            </div>
+                            <div class="list-group no-padding no-margin" uib-dropdown-menu>
+                                <a href="javascript:void(0);"
+                                   class="list-group-item"
+                                   key-navigate-directive
+                                   ng-click="person.gender = item"
+                                   ng-class="{'active': item === person.gender}"
+                                   ng-repeat="item in ['Male', 'Female'] track by $index">{{item}}</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3" ng-if="$index === 0">
+                        <div uib-dropdown auto-close="outsideClick" on-toggle="data.keyword = ''; event.onFilterCountries()" is-open="data.isOpenCountryDropdown">
+                            <div class="input-group" uib-dropdown-toggle>
+                                <input type="text"
+                                       class="form-control"
+                                       readonly
+                                       ng-value="person.nationality.country_name || 'Your nationality'">
+                                <input type="text"
+                                       class="form-control hidden"
+                                       readonly
+                                       required
+                                       ng-model="person.nationality">
+                                <div class="input-group-addon"><span class="caret"></span></div>
+                            </div>
+                            <div class="list-group no-padding no-margin list-countries suggestion-list" uib-dropdown-menu style="width: 280px;">
+                                <span>
+                                    <input type="text"
+                                           class="form-control"
+                                           placeholder="Type your keyword"
+                                           ng-keyup="fn.onKeyupCountriesSearch($event)"
+                                           ng-change="event.onFilterCountries(data.keyword)"
+                                           ng-model="data.keyword">
+                                </span>
+                                <div class="list-group-inner">
+                                    <a href="javascript:void(0);"
+                                       class="list-group-item"
+                                       key-navigate-directive
+                                       ng-click="person.nationality = item; data.isOpenCountryDropdown = false"
+                                       ng-class="{'active': item.country_id === person.nationality.country_id}"
+                                       ng-repeat="item in data.countries track by $index">{{item.country_name}}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div name="area" class="col-xs-3 " ng-if="$index === 0">
+                        <div uib-dropdown>
+                            <div class="input-group" uib-dropdown-toggle>
+                                <span class="form-control span-overflow">{{person.masterAreaOfCover.master_area_name || 'Ideal area of cover'}}</span>
+                                <input type="text" class="hidden" readonly required ng-model="person.masterAreaOfCover">
+                                <div class="input-group-addon"><span class="caret"></span></div>
+                            </div>
+                            <div class="list-group no-padding no-margin" uib-dropdown-menu>
+                                <a href="javascript:void(0);"
+                                   class="list-group-item"
+                                   key-navigate-directive
+                                   ng-click="person.masterAreaOfCover = item"
+                                   ng-class="{'active': item.master_area_id === person.masterAreaOfCover.master_area_id}"
+                                   ng-repeat="item in data.masterAreaOfCover track by $index">{{item.master_area_name}}</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3" ng-if="$index !== 0" name="relationship">
+                        <div uib-dropdown>
+                            <div class="input-group" uib-dropdown-toggle>
+                                <input type="text" class="form-control" readonly required ng-model="person.relationShip" placeholder="Relationship">
+                                <div class="input-group-addon"><span class="caret"></span></div>
+                            </div>
+                            <div class="list-group no-padding no-margin" uib-dropdown-menu>
+                                <a href="javascript:void(0);"
+                                   class="list-group-item"
+                                   ng-click="person.relationShip = item"
+                                   ng-class="{'active': item === person.relationShip}"
+                                   ng-repeat="item in ['Spouse', 'Child'] track by $index">{{item}}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-4 col-xs-push-4 text-center">
+                        <button ng-disabled="Form.$invalid" class="btn btn-primary" style="width: 100%" ng-click="event.onSave(data.step)">GET QUOTES</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </fieldset>
+</div>

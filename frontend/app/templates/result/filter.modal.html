@@ -1,0 +1,9 @@
+<div class="modal-body">
+    <div ng-include="'templates/result/filter.content.html'"></div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-default"
+            ng-click="event.onCancelFilter(); fn.onCloseFilterModal()"><strong>Cancel</strong></button>
+    <button class="btn btn-default btn-apply"
+            ng-click="event.onFilterForMobile(); fn.onCloseFilterModal()"><strong>Apply</strong></button>
+</div>

@@ -1,0 +1,270 @@
+<div id="homepage">
+    <div class="row">
+        <div class="container-fluid bg-generic clearfix">
+            <div class="container no-padding">
+                <div class="head col-xs-12 col-lg-6">
+                    <div class="row">
+                        <h3>Easy find<br />your health care<br />plan</h3>
+                        <p>Find right plan now</p>
+                    </div>
+                </div>
+                <form name="Form" class="col-xs-12 col-lg-5" ng-controller="PlanController" ng-init="event.onLoad()" data-step="1" data-intro="This is a tooltip!">
+                    <div class="row">
+                        <div class="form bg-color-white">
+                            <div class="form-group no-wrap">
+                                <span>I want to cover</span>
+                                <div class="selection">
+                                    <span class="selection-result">{{data.selection.cover[data.coverPersonSelected].name}}</span>
+                                    <select ng-model="data.coverPersonSelected"
+                                            ng-change="event.onChangeMainCover(data.plan.persons, data.coverPersonSelected)"
+                                            ng-options="item.value as item.name for item in data.selection.cover"></select>
+                                </div>.
+                            </div>
+
+                            <div class="form-group">
+                                <span>I am a</span>
+                                <div class="datepicker">
+                                    <span class="btn-datepicker" ng-click="isMainPersonDatepickerOpen = true"></span>
+                                    <div class="selection">
+                                        <span class="selection-result">{{data.plan.persons[0].age}}</span>
+                                    </div>
+                                    <input type="text"
+                                           uib-datepicker-popup
+                                           datepicker-append-to-body="true"
+                                           popup-placement="bottom"
+                                           show-button-bar="false"
+                                           datepicker-options="data.datepickerOptions"
+                                           ng-change="event.onChoosenCalendar(data.plan.persons[0].rawData.age, 0)"
+                                           ng-model="data.plan.persons[0].rawData.age"
+                                           is-open="isMainPersonDatepickerOpen">
+                                </div>
+                                <span>years old</span>
+                                <div class="selection">
+                                    <span class="selection-result">
+                                        {{data.selection.mainGender[data.plan.persons[0].rawData.gender].name}}
+                                    </span>
+                                    <select ng-model="data.plan.persons[0].rawData.gender"
+                                            ng-options="item.value as item.name for item in data.selection.mainGender">
+                                    </select>
+                                </div>,
+                            </div>
+
+                            <div class="form-group">
+                                <span>I am from</span>
+                                <div class="selection">
+                                    <span class="selection-result">{{data.fromCountryValue}}</span>
+                                    <select ng-model="data.plan.nationality"
+                                            ng-change="fn.onSelectFromCountry()"
+                                            ng-options="item.country_id as item.country_name for item in data.selection.countries">
+                                    </select>
+                                </div>
+                                <span>and I will reside in</span>
+                                <div class="selection">
+                                    <span class="selection-result">{{data.resideCountryValue}}</span>
+                                    <select ng-model="data.plan.countryOfResidence"
+                                            ng-change="fn.onSelectResideCountry()"
+                                            ng-options="item.country_id as item.country_name for item in data.selection.countries">
+                                    </select>
+                                </div>
+                                <span class="desktop-block">during the valid time of the health insurance.</span>
+                            </div>
+
+                            <div class="form-group" ng-if="fn.isShowSpouse()">
+                                <span>My spouse is</span>
+                                <div class="datepicker">
+                                    <span class="btn-datepicker" ng-click="isSpouseDatepickerOpen = true"></span>
+                                    <div class="selection">
+                                        <span class="selection-result">{{data.plan.persons[1].age}}</span>
+                                    </div>
+                                    <input type="text"
+                                           uib-datepicker-popup
+                                           datepicker-append-to-body="true"
+                                           popup-placement="bottom"
+                                           show-button-bar="false"
+                                           datepicker-options="data.datepickerOptions"
+                                           ng-change="event.onChoosenCalendar(data.plan.persons[1].rawData.age, 1)"
+                                           ng-model="data.plan.persons[1].rawData.age"
+                                           is-open="isSpouseDatepickerOpen">
+                                </div>
+                                <span>years old.</span>
+                            </div>
+
+                            <div class="form-group clearfix kids-block" ng-if="fn.isShowKid()">
+                                <div class="font-weight-semi-bold margin-bottom-5 desktop-font-size">My kid(s) is/are:</div>
+                                <div class="margin-bottom-5" ng-repeat="item in data.plan.persons" ng-if="item.relationShip === 'child'">
+                                    <span>a</span>
+                                    <div class="selection">
+                                        <span class="selection-result" style="width: 57px;">
+                                            {{data.selection.kidGender[item.rawData.gender].name}}
+                                        </span>
+                                        <select ng-model="item.rawData.gender"
+                                                ng-options="item.value as item.name for item in data.selection.kidGender">
+                                        </select>
+                                    </div>
+                                    <span class="margin-left-5 margin-right-5">of</span>
+                                    <div class="datepicker">
+                                        <span class="btn-datepicker" ng-click="isKidCalendarOpen = true"></span>
+                                        <div class="selection">
+                                            <span class="selection-result">{{item.age}}</span>
+                                        </div>
+                                        <input type="text"
+                                               uib-datepicker-popup
+                                               datepicker-append-to-body="true"
+                                               popup-placement="bottom"
+                                               show-button-bar="false"
+                                               datepicker-options="data.datepickerOptions"
+                                               ng-change="event.onChoosenCalendar(item.rawData.age, $index)"
+                                               ng-model="item.rawData.age"
+                                               is-open="isKidCalendarOpen">
+                                    </div>
+                                    <span class="margin-left-5">year(s) old</span>
+                                    <span class="pointer fa fa-minus-circle" ng-click="event.onRemoveKid(data.plan.persons, $index)"></span>
+                                </div>
+                                <div class="pull-right pointer"
+                                     ng-if="fn.checkShowAddMoreKid()"
+                                     ng-click="event.onAddMoreKid(data.plan.persons)">
+                                    <span class="fa fa-plus-circle"></span> <i class="text-grey">Add more child</i>
+                                </div>
+                            </div>
+                            <div class="clearfix visible-lg"></div>
+
+                            <div class="form-group">
+                                <span class="no-margin">Ideally, I would like to be covered in</span>
+                                <div class="selection no-margin">
+                                    <span class="selection-result">{{data.areaValue}}</span>
+                                    <select ng-model="data.plan.masterAreaOfCover"
+                                            ng-change="fn.onSelectArea()"
+                                            ng-options="item.master_area_id as item.master_area_name for item in data.selection.area">
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="devide"></div>
+
+                            <div class="plan-chosen">
+                                <div class="font-weight-semi-bold">This plan should cover:</div>
+                                <div class="row">
+                                    <div class="col-xs-6 col-lg-4">
+                                        <div class="checkbox disabled">
+                                            <label>
+                                                <input type="checkbox" class="checkbox" checked disabled/>
+                                                <span>Hospitalization</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6 col-lg-4">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox"
+                                                       class="checkbox"
+                                                       ng-checked="data.plan.outpatientCover"
+                                                       ng-model="data.plan.outpatientCover"/>
+                                                <span>Outpatient</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6 col-lg-4">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox"
+                                                       class="checkbox"
+                                                       ng-checked="data.plan.dentalCover"
+                                                       ng-model="data.plan.dentalCover"/>
+                                                <span>Dental</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6 col-lg-4">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox"
+                                                       class="checkbox"
+                                                       ng-checked="data.plan.opticalCover"
+                                                       ng-model="data.plan.opticalCover" />
+                                                <span>Optical</span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-6 col-lg-4">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox"
+                                                       class="checkbox"
+                                                       ng-checked="data.plan.maternityCover"
+                                                       ng-model="data.plan.maternityCover" />
+                                                <span>Maternity</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <span class="tip"><i>* You should choose more than one</i></span>
+                            </div>
+
+                            <div class="row margin-bottom-5">
+                                <div class="col-sm-12 col-lg-10 col-lg-offset-1">
+                                    <button class="view-plan text-primary font-weight-semi-bold"
+                                            ng-click="event.onFindPlan(data.plan)">Fine, view my plans</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid row intro">
+        <div class="row">
+            <div class="container">
+                <div class="row" data-step="2" data-intro="This is a tooltip!">
+                    <div class="intro-item col-xs-12 col-lg-3 text-center">
+                        <div class="photo">
+                            <img src="/assets/img/small-print.png">
+                        </div>
+                        <div class="detail">
+                            <div class="title">
+                                SMALL PRINT
+                            </div>
+                            <p>We highlight exclusions, waiting periods and other vital information for your quick understanding.</p>
+                        </div>
+                    </div>
+                    <div class="intro-item col-xs-12 col-lg-3 text-center">
+                        <div class="photo">
+                            <img src="/assets/img/s-service.png">
+                        </div>
+                        <div class="detail">
+                            <div class="title">
+                                “s” service
+                            </div>
+                            <p>Enable email contact and get<br class="visible-lg" /> answering instant without any extra costs.</p>
+                        </div>
+                    </div>
+                    <div class="intro-item col-xs-12 col-lg-3 text-center">
+                        <div class="photo">
+                            <img src="/assets/img/flexibility.png">
+                        </div>
+                        <div class="detail">
+                            <div class="title">
+                                Flexibility
+                            </div>
+                            <p>Plan to suit your individual needs, convenience with live chat, voice and video conversations, electronic signing.</p>
+                        </div>
+                    </div>
+                    <div class="intro-item col-xs-12 col-lg-3 text-center">
+                        <div class="photo">
+                            <img src="/assets/img/do_it.png">
+                        </div>
+                        <div class="detail">
+                            <div class="title">
+                                Do it for you
+                            </div>
+                            <p>Access  objective view of what is<br class="visible-lg" /> offered on the market. Guide you to choose your most product every year probably.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

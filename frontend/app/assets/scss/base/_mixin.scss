@@ -1,0 +1,26 @@
+/**
+ * Created by apium on 28/04/2017.
+ */
+@mixin absolute-box($top, $right, $bottom: $top, $left: $right) {
+    position: absolute;
+    top: $top;
+    right: $right;
+    left: $left;
+    bottom: $bottom;
+}
+
+@mixin vendor($property, $value) {
+    -webkit-#{$property}: $value;
+    -moz-#{$property}: $value;
+    -ms-#{$property}: $value;
+    -o-#{$property}: $value;
+    #{$property}: $value;
+}
+
+$make-text-font-family: 'Source Sans Pro', sans-serif;
+@mixin make-text($font-size: 14px, $font-weight: normal, $color: $dark-1, $font-family: $make-text-font-family) {
+    font-size: $font-size;
+    font-weight: $font-weight;
+    color: $color;
+    font-family: $font-family;
+}

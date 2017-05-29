@@ -1,0 +1,12 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+    // Controls auto save of dirty files. Accepted values:  "off", "afterDelay", "onFocusChange" (editor loses focus), "onWindowChange" (window loses focus). If set to "afterDelay", you can configure the delay in "files.autoSaveDelay".
+    "files.autoSave": "afterDelay",
+    // Configure glob patterns for excluding files and folders in searches. Inherits all glob patterns from the files.exclude setting.
+    "search.exclude": {
+        "**/node_modules": false,
+        "**/bower_components": true,
+        "**/*.map": true,
+        "**/*.js": true
+    }
+}

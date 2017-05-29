@@ -1,0 +1,136 @@
+<div class="container clearfix" ng-init="event.onLoad();">
+    <div class="row margin-top-30">
+        <div class="col-lg-10" ng-if="!!data.plan" ng-init="plan = data.plan">
+            <h5 class="font-weight-semi-bold" style="font-size:16px;">
+                health plan for you
+            </h5>
+            <div class="result-list clearfix">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="result-list-item clearfix"
+                             ng-click="event.onOpenDetail(plan)">
+                            <div class="col-xs-6 text-center money-block">
+                                <sup>US$</sup>
+                                <span class="text-primary">{{plan.total_annual_premium}}</span>
+                                <sub>/month</sub>
+                            </div>
+                            <div class="col-xs-6 text-center logo-block">
+                                <img ng-src="upload/logos/{{plan.logo}}"/>
+                            </div>
+                            <div class="col-xs-6 label-block">
+                                <span class="text-label">Outpatient cover</span>
+                                <span class="fa pull-right" ng-class="fn.getChecked(plan.outPatientCover.checked)"></span>
+                            </div>
+                            <div class="col-xs-6 label-block">
+                                <span class="text-label">Maternity cover</span>
+                                <span class="fa pull-right" ng-class="fn.getChecked(plan.maternityCover.checked)"></span>
+                            </div>
+                            <div class="col-xs-6 label-block">
+                                <span class="text-label">Dental cover</span>
+                                <span class="fa pull-right" ng-class="fn.getChecked(plan.dentalCover.checked)"></span>
+                            </div>
+                            <div class="col-xs-6 label-block">
+                                <span class="text-label">Optical cover</span>
+                                <span class="fa pull-right" ng-class="fn.getChecked(plan.opticalCover.checked)"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <form name="Form">
+
+            <div class="col-lg-10">
+                <h5 class="font-weight-semi-bold" style="font-size:16px;">
+                    First name <span class="text-danger">*</span>
+                </h5>
+                <div class="form-group" ng-class="{'has-error': Form.firstName.$dirty && Form.firstName.$invalid}">
+                    <input type="text" class="form-control" name="first-name" ng-model="data.formData.firstName" required>
+                </div>
+            </div>
+
+            <div class="col-lg-10">
+                <h5 class="font-weight-semi-bold" style="font-size:16px;">
+                    Last name <span class="text-danger">*</span>
+                </h5>
+                <div class="form-group" ng-class="{'has-error': Form.lastName.$dirty && Form.lastName.$invalid}">
+                    <input type="text" class="form-control" name="last-name" ng-model="data.formData.lastName" required>
+                </div>
+            </div>
+
+            <div class="col-lg-10">
+                <h5 class="font-weight-semi-bold" style="font-size:16px;">
+                    Email address <span class="text-danger">*</span>
+                </h5>
+                <div class="form-group">
+                    <input type="email" class="form-control" name="email" ng-model="data.formData.email" required>
+                </div>
+            </div>
+
+            <div class="col-lg-10">
+                <h5 class="font-weight-semi-bold" style="font-size:16px;">
+                    Telephone number (specify country code)
+                </h5>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="phone" ng-model="data.formData.phone">
+                </div>
+            </div>
+
+            <div class="col-lg-10">
+                <h5 class="font-weight-semi-bold" style="font-size:16px;">
+                    Request a phone callback
+                </h5>
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            <input class="checkbox" type="checkbox" name="request" ng-model="data.formData.request">
+                            <span></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-10">
+                <h5 class="font-weight-semi-bold" style="font-size:16px;">
+                    Preferred call back date and time
+                </h5>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="preferred" ng-model="data.formData.preferred">
+                </div>
+            </div>
+
+            <div class="col-lg-10">
+                <h5 class="font-weight-semi-bold" style="font-size:16px;">
+                    Callback location (City, Country)
+                </h5>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="location" ng-model="data.formData.location">
+                </div>
+            </div>
+            <div class="col-lg-10">
+                <h5 class="font-weight-semi-bold" style="font-size:16px;">
+                    Questions
+                </h5>
+                <div class="form-group">
+                    <textarea class="form-control" rows="5" name="comment" ng-model="data.formData.questions"></textarea>
+                </div>
+            </div>
+            <div class="col-lg-3 col-lg-push-7">
+                <div class="form-group no-margin">
+                    <button ng-disabled="Form.$invalid"
+                            class="btn btn-primary"
+                            style="width:100%;"
+                            ng-click="event.onClickAskUs(data.formData)">Ask us!</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!--<div class="row text-center">-->
+    <!--<div class="col-lg-4 col-lg-push-3 margin-top-50 margin-bottom-50">-->
+    <!--<button class="btn btn-primary btn-trans btn-more-plans">-->
+    <!--View more plans-->
+    <!--</button>-->
+    <!--</div>-->
+    <!--</div>-->
+</div>

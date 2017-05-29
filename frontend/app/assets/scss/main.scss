@@ -1,0 +1,32 @@
+// base
+@import "base/fonts";
+@import "base/color";
+@import "base/mixin";
+@import "base/variable";
+
+// bootstrap-sass
+@import "base/variable-bootstrap";
+@import "../../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+
+// font-awesome
+$fa-font-path: "fonts/font-awesome";
+@import "../../node_modules/font-awesome/scss/font-awesome.scss";
+
+// angular slider
+@import "../../node_modules/angularjs-slider/dist/rzslider.scss";
+
+// overwrite bootstrap component
+@import "base/input";
+@import "base/modal";
+@import "base/buttons";
+
+// eHealthScanner modules
+@import "module/all";
+
+// eHealthScanner responsive
+@media (min-width: $screen-lg-min) {
+  @import "responsive/responsive-large";
+}
+
+// introJS
+@import "../vendor/introjs.min";

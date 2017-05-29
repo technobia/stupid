@@ -1,0 +1,21 @@
+version: '2'
+services:
+
+  backend:
+    image: ${DOCKER_REGISTRY}/ehealthscanner-backend:${TAG}
+    env_file:
+      - ./env/${ENVIRONMENT}/mysql-client.properties
+      - ./env/${ENVIRONMENT}/application.properties
+
+  frontend:
+    image: ${DOCKER_REGISTRY}/ehealthscanner-frontend:${TAG}
+    env_file:
+      - ./env/${ENVIRONMENT}/application.properties
+
+  proxy:
+    depends_on:
+      - frontend
+      - backend
+    ports:
+      - 80:80
+      - 443:443

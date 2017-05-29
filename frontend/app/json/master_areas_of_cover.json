@@ -1,0 +1,30 @@
+[
+  {
+    "master_area_name": "Worldwide",
+    "master_area_id": "1"
+  },
+  {
+    "master_area_name": "Worldwide excluding USA",
+    "master_area_id": "2"
+  },
+  {
+    "master_area_name": "South East Asia",
+    "master_area_id": "3"
+  },
+  {
+    "master_area_name": "Europe",
+    "master_area_id": "4"
+  },
+  {
+    "master_area_name": "Africa",
+    "master_area_id": "5"
+  },
+  {
+    "master_area_name": "South America",
+    "master_area_id": "6"
+  },
+  {
+    "master_area_name": "Vietnam",
+    "master_area_id": "7"
+  }
+]

@@ -1,0 +1,38 @@
+<div class="result-list clearfix">
+    <div class="row">
+        <div class="col-xs-12" ng-if="data.plans.length !== 0">
+            <div class="result-list-item clearfix"
+                 ng-click="event.onOpenDetail(plan)"
+                 ng-repeat="plan in data.plans" data-step="1" data-intro="This is a mobile tooltip!" data-position="top">
+                <div class="col-xs-6 text-center money-block">
+                    <sup>US$</sup>
+                    <span class="text-primary">{{plan.total_annual_premium}}</span>
+                    <sub>/month</sub>
+                </div>
+                <div class="col-xs-6 text-center logo-block">
+                    <img ng-src="upload/logos/{{plan.logo}}"/>
+                </div>
+                <div class="col-xs-6 label-block">
+                    <span class="text-label">Outpatient cover</span>
+                    <span class="fa pull-right" ng-class="fn.getChecked(plan.outPatientCover.checked)"></span>
+                </div>
+                <div class="col-xs-6 label-block">
+                    <span class="text-label">Maternity cover</span>
+                    <span class="fa pull-right" ng-class="fn.getChecked(plan.maternityCover.checked)"></span>
+                </div>
+                <div class="col-xs-6 label-block">
+                    <span class="text-label">Dental cover</span>
+                    <span class="fa pull-right" ng-class="fn.getChecked(plan.dentalCover.checked)"></span>
+                </div>
+                <div class="col-xs-6 label-block">
+                    <span class="text-label">Optical cover</span>
+                    <span class="fa pull-right" ng-class="fn.getChecked(plan.opticalCover.checked)"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="filter-float-button" ng-click="fn.onOpenFilter();" data-step="2" data-intro="This is a mobile tooltip!" data-position="top">
+    <span class="fa fa-align-center text-danger"></span>
+</div>
