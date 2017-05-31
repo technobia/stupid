@@ -1,6 +1,3 @@
-e-Health-Scanner
-===========================
-
 # Prerequisite
 
 1. Ubuntu (>= 14.04)
